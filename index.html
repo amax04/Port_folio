@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Aman Saxena — Futuristic Neon Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#030313;
+      --panel:rgba(255,255,255,0.03);
+      --accent:#40e0ff;
+      --accent-2:#62b6ff;
+      --glass-border:rgba(96,180,255,0.1);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;background:linear-gradient(180deg,#020214,#040418);color:#dfe7ff;font-family:Poppins,system-ui;overflow-x:hidden}
+    a{color:var(--accent);text-decoration:none}
+    header{position:fixed;top:10px;left:0;right:0;z-index:100;text-align:center}
+    .nav{background:rgba(4,6,12,0.5);padding:8px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);display:inline-flex;gap:12px;backdrop-filter:blur(6px)}
+    .nav a{font-weight:600;color:#cfeaff;transition:.2s}
+    .nav a:hover{transform:translateY(-3px);color:var(--accent)}
+    main{max-width:1200px;margin:0 auto;padding-top:120px;z-index:10;position:relative}
+    .hero{display:flex;align-items:center;gap:40px;padding:40px}
+    .info{flex:1}
+    h1{font-family:Orbitron;font-size:52px;margin:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;color:transparent}
+    .tag{font-size:22px;color:#9fb7ff;margin-top:8px}
+    .cta{margin-top:20px;display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;padding:12px 20px;border-radius:10px;color:#001;font-weight:700;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-4px)}
+    .btn.secondary{background:transparent;color:#cfeaff;border:1px solid rgba(255,255,255,0.05)}
+    .portrait{width:320px;height:440px;border-radius:14px;overflow:hidden;flex-shrink:0;border:4px solid rgba(64,224,255,0.2);box-shadow:0 0 40px rgba(64,224,255,0.15)}
+    .portrait img{width:100%;height:100%;object-fit:cover}
+    .panel{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:14px;padding:30px;margin:40px;backdrop-filter:blur(8px);box-shadow:0 0 40px rgba(64,224,255,0.08)}
+    h2{font-family:Orbitron;color:var(--accent);margin-top:0}
+    .skills{display:flex;flex-wrap:wrap;gap:16px}
+    .skill{width:520px;padding:16px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.04);transition:.3s}
+    .skill:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(64,224,255,0.2)}
+    .meter{height:10px;background:#05050a;border-radius:10px;margin-top:10px;overflow:hidden}
+    .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+    .projects,.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+    .project,.cert{padding:24px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);transition:.3s;min-height:220px}
+    .project:hover,.cert:hover{transform:scale(1.05);box-shadow:0 0 35px rgba(64,224,255,0.2)}
+    .project .title{font-family:Orbitron;margin-bottom:10px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:10px;font-size:13px}
+    .exp-item{padding:20px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04)}
+    footer{text-align:center;padding:40px;color:#9fb7ff}
+    .modal-bg{position:fixed;inset:0;background:rgba(2,6,14,0.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:200}
+    .modal{width:92%;max-width:980px;background:#010114;border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.05)}
+    .modal .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    @media(max-width:900px){.hero{flex-direction:column;padding:20px}.portrait{width:100%;height:380px}.panel{margin:20px}}
+  </style>
+</head>
+<body>
+  <canvas id="bg" style="position:fixed;inset:0;z-index:0"></canvas>
+
+  
+
+  <main>
+    <section class="hero">
+      <div class="info">
+        <h1>Aman Saxena</h1>
+        <div class="tag">Software Engineer</div>
+        <p style="color:#a9c9ff;max-width:600px;margin-top:12px">
+          Passionate Java Backend Developer skilled in Spring Boot, SQL, and RESTful APIs. I build reliable systems and enjoy creating futuristic, functional web experiences.
+        </p>
+        <div class="cta">
+          <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Explore Work</button>
+          <button class="btn secondary" onclick="openResume()">View Resume / CV</button>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="assets/aman-photo.jpg" alt="Aman Saxena Portrait">
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>Motivated Java Backend Developer with hands-on experience in RESTful web development using Java, Spring Boot, and SQL. Passionate about performance, scalability, and clean code practices.</p>
+      <button class="btn" onclick="openResume()">Open Resume / CV</button>
+    </section>
+
+    <section id="skills" class="panel">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h4>Java & Backend</h4><div>Java • Spring Boot • Hibernate • REST APIs</div><div class="meter"><i style="width:90%"></i></div></div>
+        <div class="skill"><h4>Frontend</h4><div>HTML • CSS • JavaScript • Bootstrap</div><div class="meter"><i style="width:80%"></i></div></div>
+        <div class="skill"><h4>Databases</h4><div>MySQL • PostgreSQL • SQL Optimization</div><div class="meter"><i style="width:85%"></i></div></div>
+        <div class="skill"><h4>Tools</h4><div>Git • Maven • Postman • Jira</div><div class="meter"><i style="width:75%"></i></div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="panel">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <div style="margin-bottom: 20px;">
+            <div class="title">HR Management System</div>
+            <p>Web platform for managing employee data, roles, and leaves with CRUD operations, login, and OTP recovery.</p>
+            <div class="chips"><div class="chip">JSP</div><div class="chip">Servlet</div><div class="chip">MySQL</div></div>
+          </div>
+          <a class="btn secondary" href="https://github.com/amax04/Hr_Management" target="_blank">View Code</a>
+        </div>
+
+        <div class="project">
+          <div style="margin-bottom: 20px;">
+            <div class="title">Batting Dashboard</div>
+            <p>Role-based dashboard for tracking bets, transactions, and real-time statistics with admin control.</p>
+            <div class="chips"><div class="chip">JSP</div><div class="chip">MySQL</div></div>
+          </div>
+          <a class="btn secondary" href="https://github.com/amax04/Batting" target="_blank">View Code</a>
+        </div>
+
+        <div class="project">
+          <div style="margin-bottom: 20px;">
+            <div class="title">School Management System</div>
+            <p>Comprehensive system for schools with student, teacher, and timetable modules.</p>
+            <div class="chips"><div class="chip">Spring Boot</div><div class="chip">PostgreSQL</div></div>
+          </div>
+          <a class="btn secondary" href="https://github.com/amax04/School-Management" target="_blank">View Code</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="panel">
+      <h2>Certificates</h2>
+      <div class="cert-grid">
+        <div class="cert">Oracle Java </div>
+        <div class="cert">Spring Boot & Microservices</div>
+        <div class="cert">Advanced SQL</div>
+        <div class="cert">AWS Cloud Practitioner</div>
+      </div>
+    </section>
+
+    <section id="experience" class="panel">
+      <h2>Experience</h2>
+      <div class="exp-item">
+        <h3>Software Engineer Trainee — ERP Daddy Software</h3>
+        <p style="color:#9fb7ff">Feb 2025 – May 2025 • Agra</p>
+        <p>I worked on development and debugging of internal ERP modules using Java, JSP and MSSQL. Key contributions and learnings:</p>
+          <ul style="color:#cfdcff">
+            <li>Implemented RESTful endpoints and integrated server-side logic with JSP front-ends.</li>
+            <li>Designed and optimized complex SQL queries and stored procedures to improve data retrieval performance.</li>
+            <li>Participated in Agile sprints: sprint planning, standups, code reviews and issue triage using Jira.</li>
+            <li>Worked with version control (SVN/Git), wrote unit-level tests, and assisted in deploying internal builds.</li>
+            <li>Improved debugging skills — live bug-fix cycles on production-like environments and log analysis.</li>
+          </ul>
+          <button class="btn" onclick="openJob()">Open</button>
+        <!-- <ul>
+          <li>Developed and debugged ERP modules using Java, JSP, and MSSQL.</li>
+          <li>Implemented REST APIs and optimized SQL queries for performance.</li>
+          <li>Worked in Agile sprints, participated in code reviews, and assisted in deployments.</li>
+        </ul> -->
+      </div>
+    </section>
+
+    <section id="achievements" class="panel">
+      <h2>Achievements</h2>
+      <div class="projects">
+        
+        <div class="project">
+          <h3>MAH MCA CET – 97.07 Percentile</h3>
+          <p>Secured an impressive <strong>97.07 percentile</strong> in the <strong>MAH MCA CET</strong> 2025 examination.</p>
+          <button class="btn" onclick="openCet()">Open</button>
+        </div>
+
+      
+      </div>
+    </section>
+
+    
+    <!-- <section id="achievements" class="panel">
+      <h2>Achievements</h2>
+      <ul style="color:#cfdcff">
+        <li>Delivered multiple full-stack academic projects demonstrating backend design and data management.</li>
+        <li>Completed freelance dashboard project with role-based access features.</li>
+        <li>Consistent problem solving and collaborative delivery in team environments.</li>
+      </ul>
+    </section> -->
+
+    <section id="blog" class="panel">
+      <h2>Articles & Publications</h2>
+      <div class="projects">
+        <div class="project"><h3>Understanding REST APIs in Spring Boot</h3><p>Published on LinkedIn</p><a class="btn secondary" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7391858654720884737/">Read</a></div>
+        <!-- <div class="project"><h3>Optimizing SQL Queries</h3><p>Published on Medium</p><a class="btn secondary" href="#">Read</a></div> -->
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:saxenaam12@gmail.com">saxenaam12@gmail.com</a></p>
+      <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:500px">
+        <input name="name" placeholder="Your name" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
+        <input name="email" placeholder="Your email" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
+        <textarea name="message" rows="4" placeholder="Message" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff"></textarea>
+        <button type="button" class="btn" onclick="sendMail()">Send</button>
+      </form>
+    </section>
+
+    <footer>© Aman Saxena • Built with HTML/CSS/JS • Neon Blue Cyberpunk</footer>
+  </main>
+
+  <!-- Resume Modal -->
+  <div id="resumeModal" class="modal-bg" role="dialog">
+    <div class="modal">
+      <div class="controls">
+        <strong style="font-family:Orbitron">Resume / CV</strong>
+        <button class="btn secondary" onclick="closeResume()">Close</button>
+      </div>
+      <iframe src="Aman-Saxena-Resume.pdf" style="width:100%;height:600px;border:0;border-radius:8px"></iframe>
+    </div>
+  </div>
+
+  <div id="CetModal" class="modal-bg" role="dialog">
+    <div class="modal">
+      <div class="controls">
+        <strong style="font-family:Orbitron">Maha Cet 2025</strong>
+        <button class="btn secondary" onclick="closeCet()">Close</button>
+      </div>
+      <iframe src="assets/mahacet.pdf" style="width:100%;height:600px;border:0;border-radius:8px"></iframe>
+    </div>
+  </div>
+
+  <div id="JobModal" class="modal-bg" role="dialog">
+    <div class="modal">
+      <div class="controls">
+        <strong style="font-family:Orbitron">Experience Letter</strong>
+        <button class="btn secondary" onclick="closeJob()">Close</button>
+      </div>
+      <iframe src="assets/Experience.pdf" style="width:100%;height:600px;border:0;border-radius:8px"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Galaxy background
+    const canvas=document.getElementById("bg"),ctx=canvas.getContext("2d");let W=canvas.width=innerWidth,H=canvas.height=innerHeight;
+    window.addEventListener("resize",()=>{W=canvas.width=innerWidth;H=canvas.height=innerHeight;initStars()});
+    let stars=[];function initStars(){stars=[];for(let i=0;i<700;i++){stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*1.5+0.1,r:Math.random()*1.3+0.3,d:Math.random()*0.02+0.002})}}initStars();
+    const nebulas=[];for(let i=0;i<3;i++){nebulas.push({x:Math.random()*W*1.5-W*0.25,y:Math.random()*H*0.6-H*0.2,s:0.8+Math.random()*1.2,h:200+Math.random()*30,op:0.06+Math.random()*0.12,vx:(Math.random()-0.5)*0.02})}
+    function draw(){ctx.clearRect(0,0,W,H);const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#010116");g.addColorStop(1,"#030318");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+      nebulas.forEach(n=>{ctx.save();ctx.globalCompositeOperation="lighter";const grad=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,600*n.s);grad.addColorStop(0,`rgba(64,224,255,${n.op*0.9})`);grad.addColorStop(1,"rgba(2,6,12,0)");ctx.fillStyle=grad;ctx.beginPath();ctx.arc(n.x,n.y,600*n.s,0,Math.PI*2);ctx.fill();ctx.restore()});
+      for(let s of stars){s.x+=(s.z-0.5)*0.6;s.y+=Math.sin((s.x+s.y)/200)*0.02;if(s.x>W+50)s.x=-50;ctx.fillStyle=`rgba(200,230,255,${0.6*s.z})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r*s.z,0,Math.PI*2);ctx.fill();}
+      requestAnimationFrame(draw)}draw();
+
+    function openResume(){document.getElementById('resumeModal').style.display='flex';}
+    function closeResume(){document.getElementById('resumeModal').style.display='none';}
+
+    function openCet(){document.getElementById('CetModal').style.display='flex';}
+    function closeCet(){document.getElementById('CetModal').style.display='none';}
+
+    function openJob(){document.getElementById('JobModal').style.display='flex';}
+    function closeJob(){document.getElementById('JobModal').style.display='none';}
+
+
+    function sendMail(){
+      const f=document.getElementById('contactForm');
+      const data=new FormData(f);
+      const name=data.get('name')||'Anonymous',email=data.get('email')||'',message=data.get('message')||'';
+      window.location.href=`mailto:saxenaam12@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(message)}%0AFrom:%20${email}`;
+    }
+  </script>
+</body>
+</html>
