@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Aman Saxena — Futuristic Neon Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -188,15 +189,37 @@
     </section>
 
     <section id="contact" class="panel">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:saxenaam12@gmail.com">saxenaam12@gmail.com</a></p>
-      <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:500px">
-        <input name="name" placeholder="Your name" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
-        <input name="email" placeholder="Your email" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
-        <textarea name="message" rows="4" placeholder="Message" style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff"></textarea>
-        <button type="button" class="btn" onclick="sendMail()">Send</button>
-      </form>
-    </section>
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:saxenaam12@gmail.com">saxenaam12@gmail.com</a></p>
+
+  <div style="margin: 15px 0;">
+    <h3>Connect with me</h3>
+    <div style="display: flex; gap: 20px; align-items: center; margin-top: 10px;">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/aman-saxena-8a4a00262/" target="_blank" 
+         style="text-decoration: none; color: #00bfff; display: flex; align-items: center; gap: 8px;">
+        <i class="fab fa-linkedin" style="font-size: 24px;"></i> LinkedIn
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/amax04" target="_blank" 
+         style="text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px;">
+        <i class="fab fa-github" style="font-size: 24px;"></i> GitHub
+      </a>
+    </div>
+  </div>
+
+  <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:500px">
+    <input name="name" placeholder="Your name" 
+           style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
+    <input name="email" placeholder="Your email" 
+           style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff">
+    <textarea name="message" rows="4" placeholder="Message" 
+              style="padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff"></textarea>
+    <button type="button" class="btn" onclick="sendMail()">Send</button>
+  </form>
+</section>
+
 
     <footer>© Aman Saxena • Built with HTML/CSS/JS • Neon Blue Cyberpunk</footer>
   </main>
